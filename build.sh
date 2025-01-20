@@ -11,4 +11,4 @@ g++ -c Sprte.cpp -o Sprte.o
 g++ -c MyTextGraph.cpp -o MyTextGraph.o
 
 # Build main class
-g++ 3Dini.cpp 3D.o Corden.o GraphAdapter.o KeyboardAdapter.o KeyReader.o List3D.o ListLine.o Obj3D.o Sprte.o MyTextGraph.o -o 3Dini 
+g++ 3Dini.cpp 3D.o Corden.o GraphAdapter.o KeyboardAdapter.o KeyReader.o List3D.o ListLine.o Obj3D.o Sprte.o MyTextGraph.o -o 3Dini.out
