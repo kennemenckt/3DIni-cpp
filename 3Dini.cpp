@@ -17,12 +17,12 @@ int main(int numpars, char **params)
 	int numsprs=1;
 	if(numpars==1)
 	{
-		printf("Modo de Empleo:");
-		printf("\n\n3dini ARCHOBJ.3DO [ PERSPECTIVAS ]");
-		printf("\n\n[] = Opcional");
-		printf("\n\nPERSPECTIVAS:");
-		printf("\n\tNO Especificado......Frente");
-		printf("\n\t2....................Frente y Atr�s");
+		printf("Usage:");
+		printf("\n\n3dini ARCHOBJ.3DO [ PERSPECTIVES ]");
+		printf("\n\n[] = Optional");
+		printf("\n\nPERSPECTIVES:");
+		printf("\n\tNot specified......Front");
+		printf("\n\t2..................Front and back");
 		exit(0);
 	}
 	else
@@ -33,30 +33,30 @@ int main(int numpars, char **params)
 				numsprs=2;
 		}
 	}
-	printf("\n[Teclas] Navegacion:");
-	printf("\n\t\tR..............Avanzar");
-	printf("\n\t\tF............Retroceder");
-	printf("\n\t\tW................Voltear hacia arriba");
-	printf("\n\t\tS.................Voltear hacia abajo");
-	printf("\n\t\tA.............Voltear hacia la izquierda");
-	printf("\n\t\tD...............Voltear hacia la derecha");
-	printf("\n\t\tP...Deslizarse hacia arriba");
-	printf("\n\t\t[;]....Deslizarse hacia abajo");
-	printf("\n\t\t['].......Deslizarse hacia la derecha");
-	printf("\n\t\tL.....Deslizarse hacia la izquierda");
-	printf("\n\tObjeto:");
-	printf("\n\t\t[W]...Rotar hacia arriba   (y+)");
-	printf("\n\t\t[S]...Rotar hacia abajo    (y-)");
-	printf("\n\t\t[A]...Rotar a la izquierda (x-)");
-	printf("\n\t\t[D]...Rotar a la derecha   (x+)");
-	printf("\n\t\t[Q]...Rotar a la izquierda (z-)");
-	printf("\n\t\t[E]...Rotar a la derecha   (z+)");
-	printf("\n\tAdicional");
-	printf("\n\t\tENTER.........Agregar punto 3D");
-	printf("\n\t\t[C]...........Moverse al centroide del objeto");
-	printf("\n\t\t[+]...........Incrementar angulo de vision");
-	printf("\n\t\t[-]...........Decrementar angulo de vision");
-	printf("\nOprime una tecla cuando estes listo y Q para salir\n");
+	printf("\nNavigation keys:");
+	printf("\n\t\tR.......Forward");
+	printf("\n\t\tF.......Backward");
+	printf("\n\t\tW.......Turn Up");
+	printf("\n\t\tS.......Turn Down");
+	printf("\n\t\tA.......Turn Left");
+	printf("\n\t\tD.......Turn Right");
+	printf("\n\t\tP.......Slide Upward");
+	printf("\n\t\t[;].....Slide Downward");
+	printf("\n\t\t['].....Slide Right");
+	printf("\n\t\tL.......Slide Left");
+	// printf("\n\tObjeto:");
+	// printf("\n\t\t[W]...Rotar hacia arriba   (y+)");
+	// printf("\n\t\t[S]...Rotar hacia abajo    (y-)");
+	// printf("\n\t\t[A]...Rotar a la izquierda (x-)");
+	// printf("\n\t\t[D]...Rotar a la derecha   (x+)");
+	// printf("\n\t\t[Q]...Rotar a la izquierda (z-)");
+	// printf("\n\t\t[E]...Rotar a la derecha   (z+)");
+	printf("\n\tAdditional options:");
+	// printf("\n\t\tENTER.........Agregar punto 3D");
+	// printf("\n\t\t[C]...........Moverse al centroide del objeto");
+	printf("\n\t\t[+].....Increase Central Vision Angle");
+	printf("\n\t\t[-].....Decrease Central Vision Angle");
+	printf("\nPress any key when ready and press Q to quit\n");
 
 	KeyboardAdapter keyboardAdapter;
 	keyboardAdapter.initKeyboard();
@@ -66,7 +66,7 @@ int main(int numpars, char **params)
 	Objeto_3D Obj;
 	if(!Obj.LeeArch(params[1]))
 	{
-		printf("\n\nNo se pudo leer el Objeto del archivo: %s",params[1]);
+		printf("\n\nCould not read 3D object file: %s",params[1]);
 		exit(1);
 	}
 	Obj.FijaPos(-1,0,5);
@@ -87,22 +87,22 @@ int main(int numpars, char **params)
 		if(!spr)
 		{
 			graphAdapter.closeGraphMode();
-			printf("\nError de Memoria.");
+			printf("\nOut of memory error");
 			printf("\n_SPRTE_2");
 			exit(1);
 		}
 		if(!spr[0].sprteIni(0,1.79,0,30,0,0,0,0,maxx/2,maxy))
 		{
 			graphAdapter.closeGraphMode();
-			printf("\nError de Memoria:");
-			printf("\nNo hay memoria para las vistas 3D");
+			printf("\nOut of memory error:");
+			printf("\nThere is not enough memory for the 3D views");
 			exit(1);
 		}
 		if(!spr[1].sprteIni(0,1.79,0,30,180,0,maxx / 2 + 1, 0, maxx, maxy))
 		{
 			graphAdapter.closeGraphMode();
-			printf("\nError de Memoria:");
-			printf("\nNo hay memoria para las vistas 3D");
+			printf("\nOut of memory error:");
+			printf("\nThere is not enough memory for the 3D views");
 			exit(1);
 		}
 	}
@@ -112,7 +112,7 @@ int main(int numpars, char **params)
 		if(!spr)
 		{
 			graphAdapter.closeGraphMode();
-			printf("\nError de Memoria.");
+			printf("\nOut of memory error");
 			printf("\n_SPRTE_1");
 			exit(1);
 		}
@@ -120,8 +120,8 @@ int main(int numpars, char **params)
 		if(!spr[0].sprteIni(0,1.79,0,30,0,0,0,0,maxx,maxy))
 		{
 			graphAdapter.closeGraphMode();
-			printf("\nError de Memoria:");
-			printf("\nNo hay memoria para la vista 3D");
+			printf("\nOut of memory error:");
+			printf("\nThere is not enough memory for the 3D views");
 			exit(1);
 		}
 	}
