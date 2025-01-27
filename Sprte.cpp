@@ -655,7 +655,7 @@ void Sprte::movFrnArrSprte(double desp)
 void Sprte::impDat(GraphAdapter &graphAdapter)
 {
 	char cad[80];
-	sprintf(cad,"x: %3.1f y: %3.1f z: %3.1f V: %3.1f Or: %3.1f Fr: %3.1f",pos.x,pos.y,pos.z,v*rad,ori*rad,fre*rad);
+	sprintf(cad,"x:%3.1f y:%3.1f z:%3.1f V:%3.1f Or:%3.1f Fr:%3.1f",pos.x,pos.y,pos.z,v*rad,ori*rad,fre*rad);
 	graphAdapter.setColor(1);
 	graphAdapter.drawText(minx,maxy-1,cad);
 }

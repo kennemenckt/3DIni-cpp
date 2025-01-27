@@ -65,5 +65,5 @@ void GraphAdapter::drawLine(int x1, int y1, int x2, int y2) {
 }
 
 void GraphAdapter::drawText(int x, int y, char *text) {
-    //TODO: not supported yet
+    textGraph.drawText(x, y, text);
 }

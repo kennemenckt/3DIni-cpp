@@ -23,6 +23,8 @@ class MyTextGraph {
         void clearScreen();
         int getMaxX();
         int getMaxY();
+        void drawText(int x, int y, char *text);
+        void drawChar(int x, int y, char c);
 };
 
 #endif

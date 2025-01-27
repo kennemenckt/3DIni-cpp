@@ -127,7 +127,7 @@ int main(int numpars, char **params)
 
 	// linea(spr,numsprs,cad,ve,ini, graphAdapter);
 	Objeto(spr,numsprs,Obj, graphAdapter);
-	// Datos(spr,numsprs, graphAdapter);
+	Datos(spr,numsprs, graphAdapter);
 
 	graphAdapter.refreshScreen();
 	graphAdapter.clearScreen();
@@ -293,7 +293,7 @@ int main(int numpars, char **params)
 
 		// linea(spr,numsprs,cad,ve,ini, graphAdapter);
 		Objeto(spr,numsprs,Obj, graphAdapter);
-		// Datos(spr,numsprs, graphAdapter);
+		Datos(spr,numsprs, graphAdapter);
 
 		/////////////REDIBUJA////////////////
 		graphAdapter.refreshScreen();
@@ -342,17 +342,17 @@ void linea(Sprte *spr, int sprs,char *cad, int ve, GraphAdapter &graphAdapter)
 }
 void Datos(Sprte *spr, int numspr, GraphAdapter &graphAdapter)
 {
-// 	if(numspr==2)
-// 	{
-// //		setcolor(CYAN);
-// 		spr[0].impDat(graphAdapter);
-// 		spr[1].impDat(graphAdapter);
-// 	}
-// 	else
-// 	{
-// //		setcolor(CYAN);
-// 		spr->impDat(graphAdapter);
-// 	}
+	if(numspr==2)
+	{
+//		setcolor(CYAN);
+		spr[0].impDat(graphAdapter);
+		spr[1].impDat(graphAdapter);
+	}
+	else
+	{
+//		setcolor(CYAN);
+		spr->impDat(graphAdapter);
+	}
 }
 void Objeto(Sprte *spr, int numspr, Objeto_3D &obj, GraphAdapter &graphAdapter)
 {

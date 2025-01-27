@@ -62,7 +62,7 @@ void MyTextGraph::drawPoint(int x, int y) {
         return;
     if (x < 0 || x >= maxx || y < 0 || y >= maxy)
         return;
-    screen[y][x] = '*';
+    screen[y][x] = '.';
 }
 
 /**
@@ -111,4 +111,19 @@ int MyTextGraph::getMaxX() {
 
 int MyTextGraph::getMaxY() {
     return maxy;
+}
+
+void MyTextGraph::drawText(int x, int y, char *text) {
+    for (int xx=x ; text[xx] != '\0' ; xx++)
+    {
+        drawChar(xx, y, text[xx]);
+    }
+}
+
+void MyTextGraph::drawChar(int x, int y, char c) {
+    if (screen == NULL)
+        return;
+    if (x < 0 || x >= maxx || y < 0 || y >= maxy)
+        return;
+    screen[y][x] = c;
 }
