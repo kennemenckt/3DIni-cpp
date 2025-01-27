@@ -1,10 +1,9 @@
 #include "Sprte.h"
 #include "Obj3D.h"
-#include "List3D.h"
 #include "GraphAdapter.h"
 #include "KeyboardAdapter.h"
 
-void linea(Sprte *spr, int sprs,char *cad, int ve,List *ini, GraphAdapter &graphAdapter);
+void linea(Sprte *spr, int sprs,char *cad, int ve, GraphAdapter &graphAdapter);
 void Datos(Sprte *spr,int numspr, GraphAdapter &graphAdapter);
 void Objeto(Sprte *spr, int numspr, Objeto_3D &obj, GraphAdapter &graphAdapter);
 
@@ -64,14 +63,13 @@ int main(int numpars, char **params)
 	keyboardAdapter.readKey();
 
 	Objeto_3D Obj;
-	if(!Obj.LeeArch(params[1]))
+	if(!Obj.readFileOBJ	(params[1]))
 	{
 		printf("\n\nCould not read 3D object file: %s",params[1]);
 		exit(1);
 	}
 	Obj.FijaPos(-1,0,5);
 	int ve=1;
-	List *ini=NULL;
 
 	GraphAdapter graphAdapter;
 
@@ -307,7 +305,6 @@ int main(int numpars, char **params)
 	
 	keyboardAdapter.closeKeyboard();
 	
-	libera(ini);
 	if(numsprs==2)
 		delete[] spr;
 	else
@@ -315,7 +312,7 @@ int main(int numpars, char **params)
 	
 	return 0;
 }
-void linea(Sprte *spr, int sprs,char *cad, int ve,List *ini, GraphAdapter &graphAdapter)
+void linea(Sprte *spr, int sprs,char *cad, int ve, GraphAdapter &graphAdapter)
 {
 	// punto3d p;
 	// List *rec=ini;

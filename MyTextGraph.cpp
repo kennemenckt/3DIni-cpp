@@ -12,7 +12,7 @@ MyTextGraph::~MyTextGraph() {
 }
 
 void MyTextGraph::clearScr() {
-    // system("clear");
+    system("clear");
 }
 
 void MyTextGraph::initScreen() {
