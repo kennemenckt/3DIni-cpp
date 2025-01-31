@@ -659,6 +659,36 @@ void Sprte::impDat(GraphAdapter &graphAdapter)
 	graphAdapter.setColor(1);
 	graphAdapter.drawText(minx,maxy-1,cad);
 }
+void Sprte::drawFloor(GraphAdapter &graphAdapter) {
+	int floorSize = 100;
+	int floorSection = floorSize / 2;
+	for (int z = pos.z - floorSection; z <= pos.z + floorSection; z++)
+	{
+		for (int x = pos.x - floorSection; x <= pos.x + floorSection; x++)
+		{
+			punto3d p3d;
+			p3d.x = x;
+			p3d.y = 0;
+			p3d.z = z;
+			this->dibPun3d(graphAdapter, p3d, 1);
+		}
+	}
+}
+void Sprte::drawFloor2(GraphAdapter &graphAdapter) {
+	int floorSize = 500;
+	int floorSection = floorSize / 2;
+	for (int z = floorSection * -1; z <= floorSection; z+=5)
+	{
+		for (int x = floorSection * -1; x <= floorSection; x+=5)
+		{
+			punto3d p3d;
+			p3d.x = x;
+			p3d.y = 0;
+			p3d.z = z;
+			this->dibPun3d(graphAdapter, p3d, 1);
+		}
+	}
+}
 punto3d Sprte::posSprte()
 {
 	return pos;

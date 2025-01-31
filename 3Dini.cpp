@@ -68,7 +68,8 @@ int main(int numpars, char **params)
 		printf("\n\nCould not read 3D object file: %s",params[1]);
 		exit(1);
 	}
-	Obj.FijaPos(-1,0,5);
+
+	Obj.FijaPos(0,0,5);
 	int ve=1;
 
 	GraphAdapter graphAdapter;
@@ -346,12 +347,15 @@ void Datos(Sprte *spr, int numspr, GraphAdapter &graphAdapter)
 	{
 //		setcolor(CYAN);
 		spr[0].impDat(graphAdapter);
+		spr[0].drawFloor2(graphAdapter);
 		spr[1].impDat(graphAdapter);
+		spr[0].drawFloor2(graphAdapter);
 	}
 	else
 	{
 //		setcolor(CYAN);
 		spr->impDat(graphAdapter);
+		spr->drawFloor2(graphAdapter);
 	}
 }
 void Objeto(Sprte *spr, int numspr, Objeto_3D &obj, GraphAdapter &graphAdapter)

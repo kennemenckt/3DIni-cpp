@@ -34,6 +34,8 @@ class Sprte
 		void movFrenteSprte(double desp);
 		void movFrnArrSprte(double desp);
 		void impDat(GraphAdapter &graphAdapter);
+		void drawFloor(GraphAdapter &graphAdapter);
+		void drawFloor2(GraphAdapter &graphAdapter);
 		punto3d posSprte();
 		void ponPosSprte(punto3d pos);
 		void increaseSpeed(int inc);

@@ -52,14 +52,14 @@ int Objeto_3D::readFileOBJ(char *nom)
 	{
 		fscanf(fp,"%c",&com);
 		// Skip comments and unknown lines
-		if(toupper(com)!='C' && toupper(com)!='V' && toupper(com)!='F') {
+		if(toupper(com)!='C' && toupper(com)!='V' && toupper(com)!='F' && com!='\n' && com!='\r') {
 			do
 			{
 				fscanf(fp,"%c",&com);
 				if(feof(fp))
 					return 1;
 			}
-			while(com!='\n');
+			while(com!='\n' && com!='\r');
 		}
 		// Read gravity center if present
 		if(toupper(com)=='C')
@@ -89,6 +89,13 @@ int Objeto_3D::readFileOBJ(char *nom)
 			}
 			while(com!=' ');
 			fscanf(fp,"%f",&z);
+			do
+			{
+				fscanf(fp,"%c",&com);
+				if(feof(fp))
+					return 0;
+			}
+			while(com!='\n' && com!='\r');
 			CG.x=x;
 			CG.y=y;
 			CG.z=z;
@@ -120,6 +127,13 @@ int Objeto_3D::readFileOBJ(char *nom)
 			}
 			while(com!=' ');
 			fscanf(fp,"%f",&z);
+			do
+			{
+				fscanf(fp,"%c",&com);
+				if(feof(fp))
+					return 0;
+			}
+			while(com!='\n' && com!='\r');
 			p.x=x;
 			p.y=y;
 			p.z=z;
@@ -136,14 +150,14 @@ int Objeto_3D::readFileOBJ(char *nom)
 					if(feof(fp))
 						return 1;
 				}
-				while(com!=' ' && com!='\n');
-				if (com != '\n')
+				while(com!=' ' && com!='\n' && com!='\r');
+				if (com != '\n' && com != '\r')
 				{
 					fscanf(fp,"%d",&vertexIndex);
 					faces.addVertex(vertexList.get(vertexIndex));
 				}
 			}
-			while(com != '\n');
+			while(com != '\n' && com != '\r');
 		}
 	}
 	// Calculate gravity center if not present
